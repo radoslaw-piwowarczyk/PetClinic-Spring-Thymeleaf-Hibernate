@@ -17,7 +17,7 @@
 
 	<groupId>spring.project.com</groupId>
 	<artifactId>petClinic</artifactId>
-	<version>y</version>
+	<version>1.1-SNAPSHOT</version>
 	<name>petClinic</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
@@ -43,6 +43,6 @@
 	</build>
 <scm>
 	<developerConnection>scm:git:https://github.com/radoslaw-piwowarczyk/PetClinic.git</developerConnection>
-  <tag>petClinic-y</tag>
+  <tag>HEAD</tag>
   </scm>
 </project>
