@@ -1,4 +1,4 @@
 package spring.project.com.model;
 
-public class Vet {
+public class Vet extends Person {
 }
