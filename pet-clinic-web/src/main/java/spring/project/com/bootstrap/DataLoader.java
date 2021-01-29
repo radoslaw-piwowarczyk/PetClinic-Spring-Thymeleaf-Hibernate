@@ -1,21 +1,21 @@
 package spring.project.com.bootstrap;
 
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 import spring.project.com.model.Owner;
 import spring.project.com.model.Vet;
 import spring.project.com.service.OwnerService;
 import spring.project.com.service.VetService;
-import spring.project.com.service.map.OwnerServiceMap;
-import spring.project.com.service.map.VetServiceMap;
 
+@Component
 public class DataLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
 
-    public DataLoader() {
-        ownerService = new OwnerServiceMap();
-        vetService = new VetServiceMap();
+    public DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
