@@ -1,10 +1,12 @@
 package spring.project.com.service.map;
 
+import org.springframework.stereotype.Service;
 import spring.project.com.model.Owner;
 import spring.project.com.service.OwnerService;
 
 import java.util.Set;
 
+@Service
 public class OwnerServiceMap extends AbstractMapService<Owner, Long> implements OwnerService {
 
     @Override
