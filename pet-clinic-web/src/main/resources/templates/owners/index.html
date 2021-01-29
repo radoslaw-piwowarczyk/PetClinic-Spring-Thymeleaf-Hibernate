@@ -4,10 +4,24 @@
     <meta charset="UTF-8">
     <title>List of pet owners</title>
 </head>
-
 <body>
-
 <h1 th:text="'List of owners'">Owners list</h1>
 
+<table>
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner?.id}">1</td>
+        <td th:text="${owner?.firstName}">John</td>
+        <td th:text="${owner?.lastName}">Doe</td>
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
