@@ -1,10 +1,12 @@
 package spring.project.com.service.map;
 
+import org.springframework.stereotype.Service;
 import spring.project.com.model.PetType;
 import spring.project.com.service.PetTypeService;
 
 import java.util.Set;
 
+@Service
 public class PetTypeServiceMap extends AbstractMapService<PetType,Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
@@ -13,12 +15,12 @@ public class PetTypeServiceMap extends AbstractMapService<PetType,Long> implemen
 
     @Override
     public void deleteById(Long id) {
-
+        super.deleteById(id);
     }
 
     @Override
     public void delete(PetType object) {
-
+        super.delete(object);
     }
 
     @Override
