@@ -3,11 +3,14 @@ package spring.project.com.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import spring.project.com.model.Owner;
+import spring.project.com.model.Pet;
 import spring.project.com.model.PetType;
 import spring.project.com.model.Vet;
 import spring.project.com.service.OwnerService;
 import spring.project.com.service.PetTypeService;
 import spring.project.com.service.VetService;
+
+import java.time.LocalDate;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -39,6 +42,15 @@ public class DataLoader implements CommandLineRunner {
         owner1.setAddress("123 Street");
         owner1.setCity("Pasadena");
         owner1.setTelephone("123456");
+
+        Pet michaelsPet = new Pet();
+        michaelsPet.setPetType(savedDogPetType);
+        michaelsPet.setOwner(owner1);
+        michaelsPet.setBirthDate(LocalDate.now());
+        michaelsPet.setName("Chikaka");
+        owner1.getPets().add(michaelsPet);
+
+
         ownerService.save(owner1);
 
         Owner owner2 = new Owner();
