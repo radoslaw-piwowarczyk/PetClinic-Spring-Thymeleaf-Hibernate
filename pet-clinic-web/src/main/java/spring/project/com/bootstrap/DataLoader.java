@@ -3,10 +3,7 @@ package spring.project.com.bootstrap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import spring.project.com.model.*;
-import spring.project.com.service.OwnerService;
-import spring.project.com.service.PetTypeService;
-import spring.project.com.service.SpecialityService;
-import spring.project.com.service.VetService;
+import spring.project.com.service.*;
 
 import java.time.LocalDate;
 
@@ -17,13 +14,14 @@ public class DataLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
-
-    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
     @Override
@@ -78,7 +76,6 @@ public class DataLoader implements CommandLineRunner {
         owner2.setAddress("Elm Street");
         owner2.setCity("New York");
         owner2.setTelephone("12345678");
-        ownerService.save(owner2);
 
         Pet phoebesCat = new Pet();
         phoebesCat.setName("SmellyCat");
@@ -86,6 +83,14 @@ public class DataLoader implements CommandLineRunner {
         phoebesCat.setBirthDate(LocalDate.now());
         phoebesCat.setOwner(owner2);
         owner2.getPets().add(phoebesCat);
+
+        ownerService.save(owner2);
+
+        Visit catVisit = new Visit();
+        catVisit.setDate(LocalDate.now());
+        catVisit.setPet(phoebesCat);
+        catVisit.setDescription("smelly cat");
+        visitService.save(catVisit);
 
         System.out.println("Loaded owners.");
 
