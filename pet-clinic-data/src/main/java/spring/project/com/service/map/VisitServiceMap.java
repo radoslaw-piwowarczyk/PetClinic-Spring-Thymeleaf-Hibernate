@@ -1,5 +1,6 @@
 package spring.project.com.service.map;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import spring.project.com.model.Visit;
 import spring.project.com.service.VisitService;
@@ -7,6 +8,7 @@ import spring.project.com.service.VisitService;
 import java.util.Set;
 
 @Service
+@Profile({"default","map"})
 public class VisitServiceMap extends AbstractMapService<Visit, Long> implements VisitService {
 
 
