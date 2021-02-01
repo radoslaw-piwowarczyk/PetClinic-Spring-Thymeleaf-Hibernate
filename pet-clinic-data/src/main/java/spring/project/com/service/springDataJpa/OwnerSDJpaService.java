@@ -1,5 +1,6 @@
 package spring.project.com.service.springDataJpa;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import spring.project.com.model.Owner;
 import spring.project.com.repository.OwnerRepository;
@@ -9,6 +10,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Service
+@Profile("springDataJpa")
 public class OwnerSDJpaService implements OwnerService {
 
     private final OwnerRepository ownerRepository;
